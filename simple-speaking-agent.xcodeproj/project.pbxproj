@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A626A0331C9F1A85009FFEE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626A0321C9F1A85009FFEE1 /* AppDelegate.swift */; };
-		A626A0351C9F1A85009FFEE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626A0341C9F1A85009FFEE1 /* ViewController.swift */; };
+		A626A0351C9F1A85009FFEE1 /* SpeakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626A0341C9F1A85009FFEE1 /* SpeakerViewController.swift */; };
 		A626A0381C9F1A85009FFEE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A626A0361C9F1A85009FFEE1 /* Main.storyboard */; };
 		A626A03B1C9F1A85009FFEE1 /* simple_speaking_agent.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A626A0391C9F1A85009FFEE1 /* simple_speaking_agent.xcdatamodeld */; };
 		A626A03D1C9F1A85009FFEE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A626A03C1C9F1A85009FFEE1 /* Assets.xcassets */; };
 		A626A0401C9F1A85009FFEE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A626A03E1C9F1A85009FFEE1 /* LaunchScreen.storyboard */; };
 		A626A04B1C9F1A85009FFEE1 /* simple_speaking_agentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626A04A1C9F1A85009FFEE1 /* simple_speaking_agentTests.swift */; };
 		A626A0561C9F1A85009FFEE1 /* simple_speaking_agentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626A0551C9F1A85009FFEE1 /* simple_speaking_agentUITests.swift */; };
+		A6634A711C9F3392008212F1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6634A701C9F3392008212F1 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,7 @@
 /* Begin PBXFileReference section */
 		A626A02F1C9F1A85009FFEE1 /* simple-speaking-agent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-speaking-agent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A626A0321C9F1A85009FFEE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A626A0341C9F1A85009FFEE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A626A0341C9F1A85009FFEE1 /* SpeakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerViewController.swift; sourceTree = "<group>"; };
 		A626A0371C9F1A85009FFEE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A626A03A1C9F1A85009FFEE1 /* simple_speaking_agent.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = simple_speaking_agent.xcdatamodel; sourceTree = "<group>"; };
 		A626A03C1C9F1A85009FFEE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		A626A0511C9F1A85009FFEE1 /* simple-speaking-agentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-speaking-agentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A626A0551C9F1A85009FFEE1 /* simple_speaking_agentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_speaking_agentUITests.swift; sourceTree = "<group>"; };
 		A626A0571C9F1A85009FFEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6634A701C9F3392008212F1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +81,10 @@
 		A626A0261C9F1A85009FFEE1 = {
 			isa = PBXGroup;
 			children = (
+				A626A0301C9F1A85009FFEE1 /* Products */,
 				A626A0311C9F1A85009FFEE1 /* simple-speaking-agent */,
 				A626A0491C9F1A85009FFEE1 /* simple-speaking-agentTests */,
 				A626A0541C9F1A85009FFEE1 /* simple-speaking-agentUITests */,
-				A626A0301C9F1A85009FFEE1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,12 +101,10 @@
 		A626A0311C9F1A85009FFEE1 /* simple-speaking-agent */ = {
 			isa = PBXGroup;
 			children = (
-				A626A0321C9F1A85009FFEE1 /* AppDelegate.swift */,
-				A626A0341C9F1A85009FFEE1 /* ViewController.swift */,
-				A626A0361C9F1A85009FFEE1 /* Main.storyboard */,
-				A626A03C1C9F1A85009FFEE1 /* Assets.xcassets */,
+				A6634A7A1CA2F1D4008212F1 /* resources */,
+				A6634A791CA2F17B008212F1 /* src */,
 				A626A03E1C9F1A85009FFEE1 /* LaunchScreen.storyboard */,
-				A626A0411C9F1A85009FFEE1 /* Info.plist */,
+				A626A0361C9F1A85009FFEE1 /* Main.storyboard */,
 				A626A0391C9F1A85009FFEE1 /* simple_speaking_agent.xcdatamodeld */,
 			);
 			path = "simple-speaking-agent";
@@ -113,8 +113,8 @@
 		A626A0491C9F1A85009FFEE1 /* simple-speaking-agentTests */ = {
 			isa = PBXGroup;
 			children = (
-				A626A04A1C9F1A85009FFEE1 /* simple_speaking_agentTests.swift */,
 				A626A04C1C9F1A85009FFEE1 /* Info.plist */,
+				A626A04A1C9F1A85009FFEE1 /* simple_speaking_agentTests.swift */,
 			);
 			path = "simple-speaking-agentTests";
 			sourceTree = "<group>";
@@ -122,10 +122,37 @@
 		A626A0541C9F1A85009FFEE1 /* simple-speaking-agentUITests */ = {
 			isa = PBXGroup;
 			children = (
-				A626A0551C9F1A85009FFEE1 /* simple_speaking_agentUITests.swift */,
 				A626A0571C9F1A85009FFEE1 /* Info.plist */,
+				A626A0551C9F1A85009FFEE1 /* simple_speaking_agentUITests.swift */,
 			);
 			path = "simple-speaking-agentUITests";
+			sourceTree = "<group>";
+		};
+		A6634A781CA2F028008212F1 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A6634A701C9F3392008212F1 /* SettingsViewController.swift */,
+				A626A0341C9F1A85009FFEE1 /* SpeakerViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		A6634A791CA2F17B008212F1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A6634A781CA2F028008212F1 /* controller */,
+				A626A0321C9F1A85009FFEE1 /* AppDelegate.swift */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A6634A7A1CA2F1D4008212F1 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				A626A03C1C9F1A85009FFEE1 /* Assets.xcassets */,
+				A626A0411C9F1A85009FFEE1 /* Info.plist */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +289,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A626A0351C9F1A85009FFEE1 /* ViewController.swift in Sources */,
+				A626A0351C9F1A85009FFEE1 /* SpeakerViewController.swift in Sources */,
 				A626A0331C9F1A85009FFEE1 /* AppDelegate.swift in Sources */,
 				A626A03B1C9F1A85009FFEE1 /* simple_speaking_agent.xcdatamodeld in Sources */,
+				A6634A711C9F3392008212F1 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +334,7 @@
 				A626A0371C9F1A85009FFEE1 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		A626A03E1C9F1A85009FFEE1 /* LaunchScreen.storyboard */ = {
@@ -314,6 +343,7 @@
 				A626A03F1C9F1A85009FFEE1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -406,10 +436,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "simple-speaking-agent/Info.plist";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "simple-speaking-agent/resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "daikiueda.1979.simple-speaking-agent";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -417,10 +449,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "simple-speaking-agent/Info.plist";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "simple-speaking-agent/resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "daikiueda.1979.simple-speaking-agent";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -451,6 +485,7 @@
 		A626A0611C9F1A85009FFEE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = "";
 				INFOPLIST_FILE = "simple-speaking-agentUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "daikiueda.1979.simple-speaking-agentUITests";
@@ -491,6 +526,7 @@
 				A626A05C1C9F1A85009FFEE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A626A05D1C9F1A85009FFEE1 /* Build configuration list for PBXNativeTarget "simple-speaking-agentTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +535,7 @@
 				A626A05F1C9F1A85009FFEE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A626A0601C9F1A85009FFEE1 /* Build configuration list for PBXNativeTarget "simple-speaking-agentUITests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +544,7 @@
 				A626A0621C9F1A85009FFEE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

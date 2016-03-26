@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SpeakerViewController.swift
 //  simple-speaking-agent
 //
 //  Created by うえでー on 2016/03/21.
@@ -8,10 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SpeakerViewController: UIViewController, UINavigationBarDelegate {
 
+    @IBOutlet weak var navBar: UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -20,6 +23,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
+        return .TopAttached
+    }
+    
+    @IBAction func restart(segue :UIStoryboardSegue) {
+        
+    }
 }
-
