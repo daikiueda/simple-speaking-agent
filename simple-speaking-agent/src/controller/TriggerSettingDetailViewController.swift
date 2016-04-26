@@ -1,20 +1,25 @@
 //
-//  SettingsViewController.swift
+//  TriggerSettingDetailViewController.swift
 //  simple-speaking-agent
 //
-//  Created by うえでー on 2016/03/21.
+//  Created by うえでー on 2016/04/27.
 //  Copyright © 2016年 Daiki UEDA. All rights reserved.
 //
 
 import UIKit
 
-class SettingsViewController: UISplitViewController, UISplitViewControllerDelegate {
+class TriggerSettingDetailViewController: UIViewController {
     
+    @IBOutlet weak var actionTitle: UILabel!
+    
+    weak var speakingAction:SpeakingActionSetting?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.delegate = self
-        self.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+        if let speakingAction = self.speakingAction {
+            actionTitle.text = speakingAction.title
+        }
     }
 
     override func didReceiveMemoryWarning() {

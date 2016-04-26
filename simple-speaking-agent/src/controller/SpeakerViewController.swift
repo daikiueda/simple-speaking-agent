@@ -27,7 +27,7 @@ class SpeakerViewController: UIViewController, UINavigationBarDelegate {
         return .TopAttached
     }
     
-    @IBAction func restart(segue :UIStoryboardSegue) {
+    @IBAction func restart(segue: UIStoryboardSegue) {
         
     }
 }
