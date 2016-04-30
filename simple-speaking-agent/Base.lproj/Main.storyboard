@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--メイン画面-->
@@ -201,25 +202,120 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="ActionTitle" text="アクションタイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6n-dN-SGi">
-                                <rect key="frame" x="20" y="72" width="153" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhR-8j-lqD">
+                                <rect key="frame" x="20" y="84" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="92G-hc-Kj7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3AH-06-rbp">
+                                <rect key="frame" x="20" y="113" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アクション" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKK-yp-Jkm">
+                                <rect key="frame" x="20" y="163" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="qN4-H0-l1r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="acZ-Qj-wF4">
+                                <rect key="frame" x="20" y="192" width="560" height="29"/>
+                                <segments>
+                                    <segment title="タッチ"/>
+                                    <segment title="スワイプ"/>
+                                    <segment title="キー入力"/>
+                                </segments>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saB-Wl-cs2">
+                                <rect key="frame" x="20" y="236" width="560" height="79"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="ActionTitle" text="ターゲットキー" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8Y-9K-qLU">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="9My-Qy-kRd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Qh-44-iLj">
+                                        <rect key="frame" x="0.0" y="29" width="120" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="mFx-bA-6ag"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="m8Y-9K-qLU" firstAttribute="leading" secondItem="saB-Wl-cs2" secondAttribute="leading" id="DDO-ZV-LNW"/>
+                                    <constraint firstItem="m8Y-9K-qLU" firstAttribute="leading" secondItem="6Qh-44-iLj" secondAttribute="leading" id="Or2-Pl-cE4"/>
+                                    <constraint firstAttribute="trailing" secondItem="m8Y-9K-qLU" secondAttribute="trailing" id="P8G-wG-6cD"/>
+                                    <constraint firstItem="m8Y-9K-qLU" firstAttribute="top" secondItem="saB-Wl-cs2" secondAttribute="top" id="Tgw-Pl-0N1"/>
+                                    <constraint firstItem="6Qh-44-iLj" firstAttribute="top" secondItem="m8Y-9K-qLU" secondAttribute="bottom" constant="8" symbolic="YES" id="srv-wu-4Z1"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="おんせい" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cL6-aw-hBm">
+                                <rect key="frame" x="20" y="323" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="x7H-nn-Zry"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0Fm-A7-eJy">
+                                <rect key="frame" x="20" y="352" width="560" height="29"/>
+                                <segments>
+                                    <segment title="サウンドファイル"/>
+                                    <segment title="合成音声" enabled="NO"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VhR-8j-lqD" firstAttribute="top" secondItem="fMy-u7-4vd" secondAttribute="bottom" constant="20" id="3Xe-EU-4qc"/>
+                            <constraint firstItem="YKK-yp-Jkm" firstAttribute="top" secondItem="3AH-06-rbp" secondAttribute="bottom" constant="20" id="3lQ-cl-ayH"/>
+                            <constraint firstItem="YKK-yp-Jkm" firstAttribute="leading" secondItem="3AH-06-rbp" secondAttribute="leading" id="Aqv-k0-1VQ"/>
+                            <constraint firstItem="cL6-aw-hBm" firstAttribute="top" secondItem="saB-Wl-cs2" secondAttribute="bottom" constant="8" symbolic="YES" id="Cbf-Tr-5F2"/>
+                            <constraint firstItem="acZ-Qj-wF4" firstAttribute="leading" secondItem="YKK-yp-Jkm" secondAttribute="leading" id="FHF-vp-kDw"/>
+                            <constraint firstItem="acZ-Qj-wF4" firstAttribute="top" secondItem="YKK-yp-Jkm" secondAttribute="bottom" constant="8" symbolic="YES" id="FWE-V3-hAG"/>
+                            <constraint firstItem="cL6-aw-hBm" firstAttribute="leading" secondItem="0Fm-A7-eJy" secondAttribute="leading" id="NSp-Yk-fSf"/>
+                            <constraint firstItem="VhR-8j-lqD" firstAttribute="leading" secondItem="uLI-Z3-kbv" secondAttribute="leadingMargin" id="Q0b-mN-Wqn"/>
+                            <constraint firstItem="3AH-06-rbp" firstAttribute="trailing" secondItem="VhR-8j-lqD" secondAttribute="trailing" id="TAo-r5-ao9"/>
+                            <constraint firstItem="0Fm-A7-eJy" firstAttribute="top" secondItem="cL6-aw-hBm" secondAttribute="bottom" constant="8" symbolic="YES" id="TmC-BS-Kgm"/>
+                            <constraint firstItem="saB-Wl-cs2" firstAttribute="trailing" secondItem="acZ-Qj-wF4" secondAttribute="trailing" id="UoM-IA-nrF"/>
+                            <constraint firstItem="0Fm-A7-eJy" firstAttribute="leading" secondItem="saB-Wl-cs2" secondAttribute="leading" id="Vew-U8-CNl"/>
+                            <constraint firstItem="acZ-Qj-wF4" firstAttribute="trailing" secondItem="YKK-yp-Jkm" secondAttribute="trailing" id="ZSN-pP-spM"/>
+                            <constraint firstItem="0Fm-A7-eJy" firstAttribute="trailing" secondItem="saB-Wl-cs2" secondAttribute="trailing" id="b14-y3-Xig"/>
+                            <constraint firstItem="gsG-ei-brG" firstAttribute="top" secondItem="0Fm-A7-eJy" secondAttribute="bottom" constant="220" id="dCb-YR-8Yr"/>
+                            <constraint firstItem="YKK-yp-Jkm" firstAttribute="trailing" secondItem="3AH-06-rbp" secondAttribute="trailing" id="fVH-Ay-SKu"/>
+                            <constraint firstItem="saB-Wl-cs2" firstAttribute="leading" secondItem="acZ-Qj-wF4" secondAttribute="leading" id="ik4-Q0-jxN"/>
+                            <constraint firstItem="saB-Wl-cs2" firstAttribute="top" secondItem="acZ-Qj-wF4" secondAttribute="bottom" constant="16" id="l3s-gH-PTd"/>
+                            <constraint firstItem="3AH-06-rbp" firstAttribute="leading" secondItem="VhR-8j-lqD" secondAttribute="leading" id="lUS-gz-CxN"/>
+                            <constraint firstItem="cL6-aw-hBm" firstAttribute="trailing" secondItem="0Fm-A7-eJy" secondAttribute="trailing" id="p0L-6E-0jg"/>
+                            <constraint firstItem="3AH-06-rbp" firstAttribute="top" secondItem="VhR-8j-lqD" secondAttribute="bottom" constant="8" symbolic="YES" id="trB-Ow-QD6"/>
+                            <constraint firstItem="VhR-8j-lqD" firstAttribute="trailing" secondItem="uLI-Z3-kbv" secondAttribute="trailingMargin" id="wMh-z0-2Y6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="おんせい・トリガーのせってい" id="jYu-OV-4oN">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="t79-AR-BT5">
+                        <barButtonItem key="leftBarButtonItem" title="とりけし" id="t79-AR-BT5">
                             <connections>
                                 <segue destination="j5P-zW-Hkf" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="czZ-H8-SCk"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="rY4-Ie-l1L"/>
+                        <barButtonItem key="rightBarButtonItem" title="かんりょう" id="rY4-Ie-l1L"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="actionTitle" destination="Y6n-dN-SGi" id="8Tx-DV-Cmu"/>
+                        <outlet property="actionTitleInput" destination="3AH-06-rbp" id="MVb-u0-FtP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hrb-dg-2O6" userLabel="First Responder" sceneMemberID="firstResponder"/>

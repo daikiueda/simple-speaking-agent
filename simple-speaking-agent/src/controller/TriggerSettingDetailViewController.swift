@@ -10,15 +10,17 @@ import UIKit
 
 class TriggerSettingDetailViewController: UIViewController {
     
-    @IBOutlet weak var actionTitle: UILabel!
-    
+    @IBOutlet weak var actionTitleInput: UITextField!
+
     weak var speakingAction:SpeakingActionSetting?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         if let speakingAction = self.speakingAction {
-            actionTitle.text = speakingAction.title
+            actionTitleInput.text = speakingAction.title
         }
     }
 
@@ -27,7 +29,6 @@ class TriggerSettingDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
