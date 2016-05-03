@@ -12,11 +12,11 @@ class SpeakingActionSetting {
     
     var title: String = "みせってい"
     
-    var actionType: ACTION_TYPE?
+    var actionType: ActionType?
     
     var targetKey: String?
     
-    var soundType: SOUND_TYPE?
+    var soundType: SoundType?
     
     init(title: String?) {
         if let title = title {
@@ -24,26 +24,28 @@ class SpeakingActionSetting {
         }
     }
     
-    enum ACTION_TYPE: Int {
-        case SWIPE
-        case KEY
+    enum ActionType: Int {
+        case Touch = 1
+        case Swipe = 2
+        case Key = 3
         
         func getCaption() -> String {
             switch self {
-            case .SWIPE: return "スワイプ"
-            case .KEY: return "キー"
+            case .Touch: return "タッチ"
+            case .Swipe: return "スワイプ"
+            case .Key: return "キー"
             }
         }
     }
     
-    enum SOUND_TYPE: Int {
-        case MEDIA
-        case SYNTHE
+    enum SoundType: Int {
+        case Media = 1
+        case Synthe = 2
         
         func getCaption() -> String {
             switch self {
-            case .MEDIA: return "音声ファイル"
-            case .SYNTHE: return "合成音声"
+            case .Media: return "音声ファイル"
+            case .Synthe: return "合成音声"
             }
         }
     }

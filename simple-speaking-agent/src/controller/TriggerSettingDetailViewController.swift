@@ -10,18 +10,22 @@ import UIKit
 
 class TriggerSettingDetailViewController: UIViewController {
     
-    @IBOutlet weak var actionTitleInput: UITextField!
+    @IBOutlet private dynamic weak var actionTitleInput: UITextField?
 
-    weak var speakingAction:SpeakingActionSetting?
+    var speakingAction:SpeakingActionSetting?
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(animated: Bool) {
-        if let speakingAction = self.speakingAction {
-            actionTitleInput.text = speakingAction.title
+        guard let
+            speakingAction = self.speakingAction,
+            actionTitleInput = actionTitleInput else {
+            return
         }
+        
+        actionTitleInput.text = speakingAction.title
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,14 +33,28 @@ class TriggerSettingDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
+    private func updateSpeakinkAction() {
+        guard let
+            speakingAction = self.speakingAction,
+            actionTitleInput = actionTitleInput else {
+            return
+        }
+        
+        speakingAction.title = actionTitleInput.text!
+    }
+    
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    @IBAction override func unwindForSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        
+        if unwindSegue.identifier == "backToListWithUpdatedAction" {
+            self.updateSpeakinkAction()
 
+            let dest = unwindSegue.destinationViewController as! TriggerSettingListViewController
+            if let speakingAction = self.speakingAction {
+                dest.updateSpeakingAction(speakingAction)
+            }
+        }
+    }
 }

@@ -10,25 +10,37 @@ import UIKit
 
 class TriggerSettingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var actionListTable: UITableView!
+    @IBOutlet private dynamic weak var actionListTable: UITableView?
     
-    var settingsManager: SettingsManager!
+    var settingsManager: SettingsManager?
     
-    var selectedAction: SpeakingActionSetting!
+    private var selectedAction: SpeakingActionSetting?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.actionListTable.delegate = self
+        
+        if let actionListTable = actionListTable {
+            actionListTable.delegate = self
+        }
+        
         self.settingsManager = SettingsManager()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        if let actionListTable = actionListTable {
+            actionListTable.reloadData()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.settingsManager.getSpeakingActions().count
+        guard let settingsManager = self.settingsManager else {
+            return 0
+        }
+        return settingsManager.getSpeakingActions().count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -39,22 +51,37 @@ class TriggerSettingListViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.selectedAction = self.settingsManager.getSpeakingActions()[indexPath.row]
+        guard let settingsManager = self.settingsManager else {
+            return
+        }
+        
+        self.selectedAction = settingsManager.getSpeakingActions()[indexPath.row]
         if self.selectedAction != nil {
             performSegueWithIdentifier("toEditActionItem", sender: nil)
         }
     }
     
+    func updateSpeakingAction(speakingAction: SpeakingActionSetting) {
+        guard let settingsManager = self.settingsManager else {
+            return
+        }
+        
+        settingsManager.registorSpeakingAction(speakingAction)
+    }
+    
+    
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     @IBAction override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if segue.identifier == "toEditActionItem" {
             let dest = segue.destinationViewController as! TriggerSettingDetailViewController
             dest.speakingAction = self.selectedAction
         }
-    }
-    
-    @IBAction override func unwindForSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        
+        if segue.identifier == "toEditNewActionItem" {
+            let dest = segue.destinationViewController as! TriggerSettingDetailViewController
+            dest.speakingAction = SpeakingActionSetting(title: "しょきち")
+        }
     }
 }

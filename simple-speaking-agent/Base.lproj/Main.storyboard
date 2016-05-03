@@ -106,7 +106,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="YfL-IB-CbL" kind="showDetail" id="K6v-y8-Ves"/>
+                                            <segue destination="YfL-IB-CbL" kind="showDetail" identifier="showSpeakingActionSettings" id="K6v-y8-Ves"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -120,7 +120,7 @@
                     <navigationItem key="navigationItem" title="せってい" id="XQ1-95-lQz">
                         <barButtonItem key="leftBarButtonItem" title="もどる" id="7LC-10-wqP">
                             <connections>
-                                <segue destination="qy3-VE-yOp" kind="unwind" unwindAction="restart:" id="Ed3-4q-Ujm"/>
+                                <segue destination="qy3-VE-yOp" kind="unwind" identifier="exitToMain" unwindAction="restart:" id="Ed3-4q-Ujm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -179,7 +179,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="おんせい・トリガーのいちらん" id="MOh-Iz-ztS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="f7D-7X-WIh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="f7D-7X-WIh">
+                            <connections>
+                                <segue destination="BmF-in-0AB" kind="show" identifier="toEditNewActionItem" id="6fO-3s-ZNy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="actionListTable" destination="3pj-NB-5HD" id="F52-RJ-mc8"/>
@@ -309,10 +313,14 @@
                     <navigationItem key="navigationItem" title="おんせい・トリガーのせってい" id="jYu-OV-4oN">
                         <barButtonItem key="leftBarButtonItem" title="とりけし" id="t79-AR-BT5">
                             <connections>
-                                <segue destination="j5P-zW-Hkf" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="czZ-H8-SCk"/>
+                                <segue destination="j5P-zW-Hkf" kind="unwind" identifier="cancelSetting" unwindAction="unwindForSegue:towardsViewController:" id="jTP-JF-kSY"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="かんりょう" id="rY4-Ie-l1L"/>
+                        <barButtonItem key="rightBarButtonItem" title="かんりょう" id="rY4-Ie-l1L">
+                            <connections>
+                                <segue destination="j5P-zW-Hkf" kind="unwind" identifier="backToListWithUpdatedAction" unwindAction="unwindForSegue:towardsViewController:" id="3vs-A7-alU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="actionTitleInput" destination="3AH-06-rbp" id="MVb-u0-FtP"/>
@@ -372,4 +380,7 @@
             <point key="canvasLocation" x="3369" y="907"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="6fO-3s-ZNy"/>
+    </inferredMetricsTieBreakers>
 </document>

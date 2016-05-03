@@ -29,4 +29,13 @@ class SettingsManager {
     func getSpeakingActions() -> Array<SpeakingActionSetting> {
         return self.speakingActions
     }
+    
+    func registorSpeakingAction(targetSpeakingAction: SpeakingActionSetting) {
+        if !self.speakingActions.contains({ (speakingAction) -> Bool in
+            return targetSpeakingAction === speakingAction
+        }) {
+            print("append")
+            self.speakingActions.append(targetSpeakingAction)
+        }
+    }
 }

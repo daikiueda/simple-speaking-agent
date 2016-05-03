@@ -10,12 +10,14 @@ import UIKit
 
 class SpeakerViewController: UIViewController, UINavigationBarDelegate {
 
-    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet private dynamic weak var navBar: UINavigationBar?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navBar.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        if let navBar = navBar {
+            navBar.delegate = self
+        }
     }
 
     override func didReceiveMemoryWarning() {
