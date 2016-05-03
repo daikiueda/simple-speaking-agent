@@ -8,15 +8,24 @@
 
 import UIKit
 
-class SpeakerViewController: UIViewController, UINavigationBarDelegate {
+class SpeakerViewController: UIViewController,  UINavigationBarDelegate {
 
     @IBOutlet private dynamic weak var navBar: UINavigationBar?
+    @IBOutlet private dynamic weak var actionInterface: UIView?
+    @IBOutlet private dynamic weak var actionTitleDisplay: UILabel?
+    
+    // TODO: やむをえずシングルトン
+    private let settingManager = SettingsManager.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let navBar = navBar {
             navBar.delegate = self
+        }
+        
+        if let actionInterface = actionInterface {
+            actionInterface.userInteractionEnabled = true
         }
     }
 
@@ -28,6 +37,21 @@ class SpeakerViewController: UIViewController, UINavigationBarDelegate {
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return .TopAttached
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.speak(SpeakingActionSetting.ActionType.Touch)
+    }
+    
+    func prepareActionCaptureForSpeaking() {
+        
+    }
+    
+    func speak( action: SpeakingActionSetting.ActionType ) {
+        print(action)
+    }
+    
+    
+    // MARK: - Navigation
     
     @IBAction func restart(segue: UIStoryboardSegue) {
         

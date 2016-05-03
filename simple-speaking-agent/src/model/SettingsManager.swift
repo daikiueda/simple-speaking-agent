@@ -10,7 +10,9 @@ import Foundation
 
 class SettingsManager {
     
-    var speakingActions:[SpeakingActionSetting] = []
+    private var speakingActions: [SpeakingActionSetting] = []
+    
+    private var activeActions: [SpeakingActionSetting.ActionType:SpeakingActionSetting] = [:]
     
     init(){
         self.load()
@@ -20,6 +22,8 @@ class SettingsManager {
         self.speakingActions = [
             SpeakingActionSetting(title: "しょきち")
         ]
+        
+        self.setActiveActions()
     }
     
     func save(){
@@ -30,6 +34,16 @@ class SettingsManager {
         return self.speakingActions
     }
     
+    func setActiveActions() {
+        for actionType in SpeakingActionSetting.ActionType.cases() {
+            self.activeActions[actionType] = self.speakingActions.filter({actionSetting -> Bool in
+                return actionSetting.actionType == actionType && actionSetting.isActive
+            }).first
+        }
+        
+        print(self.activeActions)
+    }
+    
     func registorSpeakingAction(targetSpeakingAction: SpeakingActionSetting) {
         if !self.speakingActions.contains({ (speakingAction) -> Bool in
             return targetSpeakingAction === speakingAction
@@ -38,4 +52,6 @@ class SettingsManager {
             self.speakingActions.append(targetSpeakingAction)
         }
     }
+    
+    static let sharedInstance: SettingsManager = SettingsManager()
 }

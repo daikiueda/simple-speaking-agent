@@ -23,7 +23,8 @@ class TriggerSettingListViewController: UIViewController, UITableViewDataSource,
             actionListTable.delegate = self
         }
         
-        self.settingsManager = SettingsManager()
+        // TODO: やむをえずシングルトン
+        self.settingsManager = SettingsManager.sharedInstance
     }
 
     override func viewWillAppear(animated: Bool) {

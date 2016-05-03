@@ -12,6 +12,8 @@ class SpeakingActionSetting {
     
     var title: String = "みせってい"
     
+    var isActive: Bool = false
+    
     var actionType: ActionType?
     
     var targetKey: String?
@@ -36,6 +38,10 @@ class SpeakingActionSetting {
             case .Key: return "キー"
             }
         }
+        
+        static func cases() -> [ActionType] {
+            return [.Touch, .Swipe, .Key]
+        }
     }
     
     enum SoundType: Int {
@@ -47,6 +53,10 @@ class SpeakingActionSetting {
             case .Media: return "音声ファイル"
             case .Synthe: return "合成音声"
             }
+        }
+        
+        static func cases() -> [SoundType] {
+            return [.Synthe, .Media]
         }
     }
 }

@@ -33,15 +33,40 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <view contentMode="scaleToFill" restorationIdentifier="As" translatesAutoresizingMaskIntoConstraints="NO" id="BsF-Uf-fgd">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（プレースホルダ）" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="k87-sI-Bz1">
+                                        <rect key="frame" x="0.0" y="136" width="584" height="264"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="264" id="YYO-ib-Fet"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="48"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="k87-sI-Bz1" firstAttribute="centerY" secondItem="BsF-Uf-fgd" secondAttribute="centerY" id="NLt-Gd-aNA"/>
+                                    <constraint firstAttribute="trailing" secondItem="k87-sI-Bz1" secondAttribute="trailing" constant="16" id="RUy-mM-HXC"/>
+                                    <constraint firstItem="k87-sI-Bz1" firstAttribute="leading" secondItem="BsF-Uf-fgd" secondAttribute="leading" id="Yhd-9X-Wsa"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fHa-ne-WHn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FJy-eY-fIn"/>
                             <constraint firstAttribute="trailing" secondItem="fHa-ne-WHn" secondAttribute="trailing" id="LvI-2g-Fa4"/>
+                            <constraint firstItem="BsF-Uf-fgd" firstAttribute="top" secondItem="fHa-ne-WHn" secondAttribute="bottom" id="cgq-g7-zpT"/>
+                            <constraint firstItem="BsF-Uf-fgd" firstAttribute="trailing" secondItem="fHa-ne-WHn" secondAttribute="trailing" id="dru-rq-lUS"/>
                             <constraint firstItem="fHa-ne-WHn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fJQ-SK-hmQ"/>
+                            <constraint firstItem="BsF-Uf-fgd" firstAttribute="leading" secondItem="fHa-ne-WHn" secondAttribute="leading" id="lNu-sz-8yq"/>
+                            <constraint firstItem="BsF-Uf-fgd" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="xaf-E6-AZg"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionInterface" destination="BsF-Uf-fgd" id="4BY-Kw-QSe"/>
+                        <outlet property="actionTitleDisplay" destination="k87-sI-Bz1" id="WP8-Sm-i9L"/>
                         <outlet property="navBar" destination="fHa-ne-WHn" id="BK6-ff-qgA"/>
                     </connections>
                 </viewController>
