@@ -12,7 +12,7 @@ class TriggerSettingDetailViewController: UIViewController {
     
     @IBOutlet private dynamic weak var actionTitleInput: UITextField?
 
-    var speakingAction:SpeakingActionSetting?
+    var speakingAction:SpeakingAction?
 
     override func viewDidLoad() {
         super.viewDidLoad()

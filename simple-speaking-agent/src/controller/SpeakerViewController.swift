@@ -39,14 +39,14 @@ class SpeakerViewController: UIViewController,  UINavigationBarDelegate {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.speak(SpeakingActionSetting.ActionType.Touch)
+        self.speak(SpeakingAction.ActionType.Touch)
     }
     
     func prepareActionCaptureForSpeaking() {
         
     }
     
-    func speak( action: SpeakingActionSetting.ActionType ) {
+    func speak( action: SpeakingAction.ActionType ) {
         print(action)
     }
     

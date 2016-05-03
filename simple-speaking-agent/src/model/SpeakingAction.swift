@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SpeakingActionSetting {
+class SpeakingAction {
     
     var title: String = "みせってい"
     

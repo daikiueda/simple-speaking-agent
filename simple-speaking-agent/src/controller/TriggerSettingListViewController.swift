@@ -14,7 +14,7 @@ class TriggerSettingListViewController: UIViewController, UITableViewDataSource,
     
     var settingsManager: SettingsManager?
     
-    private var selectedAction: SpeakingActionSetting?
+    private var selectedAction: SpeakingAction?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,7 @@ class TriggerSettingListViewController: UIViewController, UITableViewDataSource,
         }
     }
     
-    func updateSpeakingAction(speakingAction: SpeakingActionSetting) {
+    func updateSpeakingAction(speakingAction: SpeakingAction) {
         guard let settingsManager = self.settingsManager else {
             return
         }
@@ -82,7 +82,7 @@ class TriggerSettingListViewController: UIViewController, UITableViewDataSource,
         
         if segue.identifier == "toEditNewActionItem" {
             let dest = segue.destinationViewController as! TriggerSettingDetailViewController
-            dest.speakingAction = SpeakingActionSetting(title: "しょきち")
+            dest.speakingAction = SpeakingAction(title: "しょきち")
         }
     }
 }
