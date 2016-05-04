@@ -23,31 +23,60 @@ class SpeakerViewController: UIViewController,  UINavigationBarDelegate {
         if let navBar = navBar {
             navBar.delegate = self
         }
-        
-        if let actionInterface = actionInterface {
-            actionInterface.userInteractionEnabled = true
-        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.enableActionCaptureForSpeaking()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        print("disappear?")
+        self.disableActionCaptureForSpeaking()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return .TopAttached
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.speak(SpeakingAction.ActionType.Touch)
+    func enableActionCaptureForSpeaking() {
+        if let actionInterface = actionInterface {
+            actionInterface.userInteractionEnabled = true
+        }
     }
     
-    func prepareActionCaptureForSpeaking() {
+    func disableActionCaptureForSpeaking() {
+        if let actionInterface = actionInterface {
+            actionInterface.userInteractionEnabled = false
+        }
+    }
+    
+    func speak(actionType: SpeakingAction.ActionType) {
+        guard let actionTitleDisplay = actionTitleDisplay else {
+            return
+        }
         
+        if let speakingAction = self.settingManager.getActiveAction(actionType) {
+            actionTitleDisplay.text = speakingAction.title
+            speakingAction.speak()
+        }
     }
     
-    func speak( action: SpeakingAction.ActionType ) {
-        print(action)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        guard let
+            actionInterface = self.actionInterface,
+            event = event
+        else {
+            return
+        }
+        
+        let isValidTouch = event.touchesForView(actionInterface)
+        if isValidTouch != nil && !isValidTouch!.isEmpty {
+            self.speak(SpeakingAction.ActionType.Touch)
+        }
     }
     
     

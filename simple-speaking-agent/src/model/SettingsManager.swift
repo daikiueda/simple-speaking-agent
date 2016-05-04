@@ -34,23 +34,26 @@ class SettingsManager {
         return self.speakingActions
     }
     
+    func getActiveAction(actionType: SpeakingAction.ActionType) -> SpeakingAction? {
+        return self.activeActions[actionType]
+    }
+    
     func setActiveActions() {
         for actionType in SpeakingAction.ActionType.cases() {
             self.activeActions[actionType] = self.speakingActions.filter({actionSetting -> Bool in
                 return actionSetting.actionType == actionType && actionSetting.isActive
             }).first
+            self.activeActions[actionType]?.prepareSpeaker()
         }
-        
-        print(self.activeActions)
     }
     
     func registorSpeakingAction(targetSpeakingAction: SpeakingAction) {
         if !self.speakingActions.contains({ (speakingAction) -> Bool in
             return targetSpeakingAction === speakingAction
         }) {
-            print("append")
             self.speakingActions.append(targetSpeakingAction)
         }
+        self.setActiveActions()
     }
     
     static let sharedInstance: SettingsManager = SettingsManager()

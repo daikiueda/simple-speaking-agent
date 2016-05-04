@@ -66,7 +66,6 @@ class TriggerSettingListViewController: UIViewController, UITableViewDataSource,
         guard let settingsManager = self.settingsManager else {
             return
         }
-        
         settingsManager.registorSpeakingAction(speakingAction)
     }
     

@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import AVFoundation
 
 class SpeakingAction {
     
-    var title: String = "みせってい"
+    var title: String? = "みせってい"
     
     var isActive: Bool = false
     
@@ -20,10 +21,44 @@ class SpeakingAction {
     
     var soundType: SoundType?
     
+    var speaker: Speakable?
+    
     init(title: String?) {
         if let title = title {
             self.title = title
         }
+        
+        self.actionType = SpeakingAction.ActionType.Touch
+        self.soundType = SpeakingAction.SoundType.Synthe
+        self.isActive = true
+    }
+    
+    func prepareSpeaker() {
+        guard let
+            title = self.title,
+            soundType = self.soundType
+        else {
+            return
+        }
+        
+        var speaker:Speakable?
+        
+        switch soundType {
+        case .Media: break
+            
+        case .Synthe:
+            speaker = AppleSyntheSpeaker()
+            try! speaker!.prepare(title)
+        }
+        
+        self.speaker = speaker
+    }
+    
+    func speak() {
+        guard let speaker = self.speaker else {
+            return
+        }
+        speaker.speak()
     }
     
     enum ActionType: Int {

@@ -20,6 +20,9 @@
 		A64576B11CCD0298006593FC /* TriggerSettingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64576B01CCD0298006593FC /* TriggerSettingListViewController.swift */; };
 		A64576B31CCFD5D4006593FC /* TriggerSettingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64576B21CCFD5D4006593FC /* TriggerSettingDetailViewController.swift */; };
 		A6634A711C9F3392008212F1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6634A701C9F3392008212F1 /* SettingsViewController.swift */; };
+		A6A286E91CD9533C001FC3E5 /* SpeakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626A0341C9F1A85009FFEE1 /* SpeakerViewController.swift */; };
+		A6A286EB1CD95B6B001FC3E5 /* AppleSyntheTalker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A286EA1CD95B6B001FC3E5 /* AppleSyntheTalker.swift */; };
+		A6A286EE1CD9686B001FC3E5 /* Speakable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A286ED1CD9686B001FC3E5 /* Speakable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,11 +57,13 @@
 		A626A0511C9F1A85009FFEE1 /* simple-speaking-agentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-speaking-agentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A626A0551C9F1A85009FFEE1 /* simple_speaking_agentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_speaking_agentUITests.swift; sourceTree = "<group>"; };
 		A626A0571C9F1A85009FFEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A64576AC1CC7EDC1006593FC /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsManager.swift; path = model/SettingsManager.swift; sourceTree = "<group>"; };
-		A64576AE1CCCFEEF006593FC /* SpeakingAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeakingAction.swift; path = model/SpeakingAction.swift; sourceTree = "<group>"; };
+		A64576AC1CC7EDC1006593FC /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		A64576AE1CCCFEEF006593FC /* SpeakingAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakingAction.swift; sourceTree = "<group>"; };
 		A64576B01CCD0298006593FC /* TriggerSettingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerSettingListViewController.swift; sourceTree = "<group>"; };
 		A64576B21CCFD5D4006593FC /* TriggerSettingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerSettingDetailViewController.swift; sourceTree = "<group>"; };
 		A6634A701C9F3392008212F1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A6A286EA1CD95B6B001FC3E5 /* AppleSyntheTalker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleSyntheTalker.swift; sourceTree = "<group>"; };
+		A6A286ED1CD9686B001FC3E5 /* Speakable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speakable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,10 +144,11 @@
 		A64576AB1CC7ED6F006593FC /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A6A286EC1CD95F81001FC3E5 /* Speakable */,
 				A64576AC1CC7EDC1006593FC /* SettingsManager.swift */,
 				A64576AE1CCCFEEF006593FC /* SpeakingAction.swift */,
 			);
-			name = model;
+			path = model;
 			sourceTree = "<group>";
 		};
 		A6634A781CA2F028008212F1 /* controller */ = {
@@ -150,8 +156,8 @@
 			children = (
 				A6634A701C9F3392008212F1 /* SettingsViewController.swift */,
 				A626A0341C9F1A85009FFEE1 /* SpeakerViewController.swift */,
-				A64576B01CCD0298006593FC /* TriggerSettingListViewController.swift */,
 				A64576B21CCFD5D4006593FC /* TriggerSettingDetailViewController.swift */,
+				A64576B01CCD0298006593FC /* TriggerSettingListViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -159,8 +165,8 @@
 		A6634A791CA2F17B008212F1 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				A64576AB1CC7ED6F006593FC /* model */,
 				A6634A781CA2F028008212F1 /* controller */,
+				A64576AB1CC7ED6F006593FC /* model */,
 				A626A0321C9F1A85009FFEE1 /* AppDelegate.swift */,
 			);
 			path = src;
@@ -173,6 +179,15 @@
 				A626A0411C9F1A85009FFEE1 /* Info.plist */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		A6A286EC1CD95F81001FC3E5 /* Speakable */ = {
+			isa = PBXGroup;
+			children = (
+				A6A286EA1CD95B6B001FC3E5 /* AppleSyntheTalker.swift */,
+				A6A286ED1CD9686B001FC3E5 /* Speakable.swift */,
+			);
+			path = Speakable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,12 +326,14 @@
 			files = (
 				A64576AF1CCCFEEF006593FC /* SpeakingAction.swift in Sources */,
 				A626A0351C9F1A85009FFEE1 /* SpeakerViewController.swift in Sources */,
+				A6A286EE1CD9686B001FC3E5 /* Speakable.swift in Sources */,
 				A64576AD1CC7EDC1006593FC /* SettingsManager.swift in Sources */,
 				A626A0331C9F1A85009FFEE1 /* AppDelegate.swift in Sources */,
 				A626A03B1C9F1A85009FFEE1 /* simple_speaking_agent.xcdatamodeld in Sources */,
 				A64576B11CCD0298006593FC /* TriggerSettingListViewController.swift in Sources */,
 				A6634A711C9F3392008212F1 /* SettingsViewController.swift in Sources */,
 				A64576B31CCFD5D4006593FC /* TriggerSettingDetailViewController.swift in Sources */,
+				A6A286EB1CD95B6B001FC3E5 /* AppleSyntheTalker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6A286E91CD9533C001FC3E5 /* SpeakerViewController.swift in Sources */,
 				A626A0561C9F1A85009FFEE1 /* simple_speaking_agentUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
