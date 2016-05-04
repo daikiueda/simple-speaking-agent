@@ -33,7 +33,7 @@ class TriggerSettingDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func updateSpeakinkAction() {
+    private func updateSpeakingAction() {
         guard let
             speakingAction = self.speakingAction,
             actionTitleInput = actionTitleInput else {
@@ -41,6 +41,11 @@ class TriggerSettingDetailViewController: UIViewController {
         }
         
         speakingAction.title = actionTitleInput.text!
+        
+        // TODO: - ダミー値
+        speakingAction.actionType = SpeakingAction.ActionType.Touch
+        speakingAction.soundType = SpeakingAction.SoundType.Synthe
+        speakingAction.isActive = true
     }
     
 
@@ -49,7 +54,7 @@ class TriggerSettingDetailViewController: UIViewController {
     @IBAction override func unwindForSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
         
         if unwindSegue.identifier == "backToListWithUpdatedAction" {
-            self.updateSpeakinkAction()
+            self.updateSpeakingAction()
 
             let dest = unwindSegue.destinationViewController as! TriggerSettingListViewController
             if let speakingAction = self.speakingAction {

@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-class SpeakingAction {
+class SpeakingAction: NSObject, NSCoding {
     
     var title: String? = "みせってい"
     
@@ -31,6 +31,28 @@ class SpeakingAction {
         self.actionType = SpeakingAction.ActionType.Touch
         self.soundType = SpeakingAction.SoundType.Synthe
         self.isActive = true
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        self.title = aDecoder.decodeObjectForKey("title") as? String
+        self.isActive = aDecoder.decodeBoolForKey("isActive")
+        self.actionType = ActionType(rawValue: aDecoder.decodeInt32ForKey("actionType"))
+        self.targetKey = aDecoder.decodeObjectForKey("targetKey") as? String
+        self.soundType = SoundType(rawValue: aDecoder.decodeInt32ForKey("soundType"))
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.title, forKey: "title")
+        aCoder.encodeBool(self.isActive, forKey: "isActive")
+        if let actionType = self.actionType {
+            aCoder.encodeInt(actionType.rawValue, forKey: "actionType")
+        }
+        if let targetKey = self.targetKey {
+            aCoder.encodeObject(targetKey, forKey: "targetKey")
+        }
+        if let soundType = self.soundType {
+            aCoder.encodeInt32(soundType.rawValue, forKey: "soundType")
+        }
     }
     
     func prepareSpeaker() {
@@ -61,7 +83,7 @@ class SpeakingAction {
         speaker.speak()
     }
     
-    enum ActionType: Int {
+    enum ActionType: Int32 {
         case Touch = 1
         case Swipe = 2
         case Key = 3
@@ -79,7 +101,7 @@ class SpeakingAction {
         }
     }
     
-    enum SoundType: Int {
+    enum SoundType: Int32 {
         case Media = 1
         case Synthe = 2
         

@@ -29,11 +29,6 @@ class SpeakerViewController: UIViewController,  UINavigationBarDelegate {
         self.enableActionCaptureForSpeaking()
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        print("disappear?")
-        self.disableActionCaptureForSpeaking()
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -45,12 +40,6 @@ class SpeakerViewController: UIViewController,  UINavigationBarDelegate {
     func enableActionCaptureForSpeaking() {
         if let actionInterface = actionInterface {
             actionInterface.userInteractionEnabled = true
-        }
-    }
-    
-    func disableActionCaptureForSpeaking() {
-        if let actionInterface = actionInterface {
-            actionInterface.userInteractionEnabled = false
         }
     }
     

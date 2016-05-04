@@ -19,19 +19,32 @@ class SettingsManager {
     }
     
     func load(){
-        self.speakingActions = [
-            SpeakingAction(title: "しょきち")
-        ]
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let storedData = userDefaults.objectForKey("speakingActions") as? NSData,
+            unarchivedData = NSKeyedUnarchiver.unarchiveObjectWithData(storedData) as? [SpeakingAction] {
+            self.speakingActions = unarchivedData
+        } else {
+            self.speakingActions = [
+                SpeakingAction(title: "しょきち")
+            ]
+        }
         
         self.setActiveActions()
     }
     
     func save(){
+        let userDefaults = NSUserDefaults.standardUserDefaults()
         
+        let speakingActions = NSKeyedArchiver.archivedDataWithRootObject(self.speakingActions)
+        userDefaults.setObject(speakingActions, forKey: "speakingActions")
+
+        userDefaults.synchronize()
     }
     
     func getSpeakingActions() -> Array<SpeakingAction> {
         return self.speakingActions
+        
     }
     
     func getActiveAction(actionType: SpeakingAction.ActionType) -> SpeakingAction? {
@@ -53,6 +66,7 @@ class SettingsManager {
         }) {
             self.speakingActions.append(targetSpeakingAction)
         }
+        self.save()
         self.setActiveActions()
     }
     
