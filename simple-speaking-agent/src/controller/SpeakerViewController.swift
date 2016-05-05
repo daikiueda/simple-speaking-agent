@@ -13,15 +13,28 @@ class SpeakerViewController: UIViewController,  UINavigationBarDelegate {
     @IBOutlet private dynamic weak var navBar: UINavigationBar?
     @IBOutlet private dynamic weak var actionInterface: UIView?
     @IBOutlet private dynamic weak var actionTitleDisplay: UILabel?
-    
+    @IBOutlet private dynamic weak var toSettingView: UIBarButtonItem?
+
     // TODO: やむをえずシングルトン
     private let settingManager = SettingsManager.sharedInstance
+    
+    private var targetKeyCommands: [UIKeyCommand]?
+    
+    // キー入力（Bluetoothデバイス）を受け取るため
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let navBar = navBar {
             navBar.delegate = self
+        }
+        
+        // スイッチコントロール利用をふまえて、メイン部分以外はハイライト対象から除外
+        if let toSettingView = toSettingView {
+            toSettingView.isAccessibilityElement = false
         }
     }
     
@@ -33,6 +46,7 @@ class SpeakerViewController: UIViewController,  UINavigationBarDelegate {
         super.didReceiveMemoryWarning()
     }
 
+    // 表示調整
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return .TopAttached
     }
@@ -40,6 +54,17 @@ class SpeakerViewController: UIViewController,  UINavigationBarDelegate {
     func enableActionCaptureForSpeaking() {
         if let actionInterface = actionInterface {
             actionInterface.userInteractionEnabled = true
+        }
+        
+        if let targetKeyCommands = self.targetKeyCommands {
+            for keyCommand in targetKeyCommands {
+                self.removeKeyCommand(keyCommand)
+            }
+        }
+        
+        self.targetKeyCommands = self.settingManager.getTargetKeyCommands(#selector(handleKeyPressed))
+        for keyCommand in self.targetKeyCommands! {
+            self.addKeyCommand(keyCommand)
         }
     }
     
@@ -52,6 +77,10 @@ class SpeakerViewController: UIViewController,  UINavigationBarDelegate {
             actionTitleDisplay.text = speakingAction.title
             speakingAction.speak()
         }
+    }
+    
+    func handleKeyPressed(keyCommand: UIKeyCommand) {
+        print(keyCommand.input)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

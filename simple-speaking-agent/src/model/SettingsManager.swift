@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class SettingsManager {
     
@@ -42,7 +43,14 @@ class SettingsManager {
         userDefaults.synchronize()
     }
     
-    func getSpeakingActions() -> Array<SpeakingAction> {
+    func getTargetKeyCommands(action: Selector) -> [UIKeyCommand] {
+        return [
+            // TODO: - mock
+            UIKeyCommand(input: "\r", modifierFlags: [], action: action)
+        ]
+    }
+    
+    func getSpeakingActions() -> [SpeakingAction] {
         return self.speakingActions
         
     }
