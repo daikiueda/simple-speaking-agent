@@ -24,7 +24,7 @@ class AppleSyntheSpeaker: Speakable {
     
     func load() {
         self.pitchMultiplier = 1.0
-        self.rate = 0.5
+        self.rate = 0.4
     }
     
     func save() {
